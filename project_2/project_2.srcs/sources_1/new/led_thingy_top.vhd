@@ -47,6 +47,7 @@ architecture rtl of led_thingy_top is
 
     -- group of RGB led signals
     signal RGB_Led_4: std_logic_vector(0 to 2); -- order R, G, B
+    signal RGB_Led_5: std_logic_vector(0 to 2); -- order R, G, B
 
 begin
 
@@ -56,6 +57,11 @@ begin
     led4_g <= RGB_Led_4(1);
     led4_b <= RGB_Led_4(0);
     
+        -- map signal "RGB_Led_5" to actual output ports
+    led5_r <= RGB_Led_5(2);
+    led5_g <= RGB_Led_5(1);
+    led5_b <= RGB_Led_5(0);
+    
     led <= btn; -- this handles the red leds
     
     -- Control of RGB LED 4
@@ -63,8 +69,12 @@ begin
         RGB_Led_4 <=    "001" when "0001", --red
                         "010" when "0010", --green
                         "100" when "0100", --blue
-                        "000" when others, --off
-    
+                        "000" when others; --off
+                        
+    with btn(3 downto 0) select
+        RGB_Led_5 <=    "000" when "1111", --off
+                        "111" when others;
+                            
 --    led(3) <= btn(3);
 --    led(2) <= btn(2);
 --    led(1) <= btn(1);
