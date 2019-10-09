@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log LABS_4_5.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source LABS_4_5.tcl
+    with args -log ClockDivider.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source ClockDivider.tcl
 
 
 ****** Vivado v2018.2 (64-bit)
@@ -8,41 +8,22 @@
   **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 
-source LABS_4_5.tcl -notrace
-Command: synth_design -top LABS_4_5 -part xc7z020clg400-1
+source ClockDivider.tcl -notrace
+Command: synth_design -top ClockDivider -part xc7z020clg400-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 16764 
+INFO: Helper process launched with PID 5692 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 335.125 ; gain = 100.156
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 335.070 ; gain = 99.934
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'LABS_4_5' [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sources_1/new/LABS_4_5.vhd:31]
-WARNING: [Synth 8-3848] Net clkDiv in module/entity LABS_4_5 does not have driver. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sources_1/new/LABS_4_5.vhd:16]
-WARNING: [Synth 8-3848] Net led in module/entity LABS_4_5 does not have driver. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sources_1/new/LABS_4_5.vhd:18]
-WARNING: [Synth 8-3848] Net RGB_LED_4 in module/entity LABS_4_5 does not have driver. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sources_1/new/LABS_4_5.vhd:33]
-WARNING: [Synth 8-3848] Net RGB_LED_5 in module/entity LABS_4_5 does not have driver. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sources_1/new/LABS_4_5.vhd:35]
-INFO: [Synth 8-256] done synthesizing module 'LABS_4_5' (1#1) [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sources_1/new/LABS_4_5.vhd:31]
-WARNING: [Synth 8-3330] design LABS_4_5 has an empty top module
-WARNING: [Synth 8-3331] design LABS_4_5 has unconnected port clkDiv
-WARNING: [Synth 8-3331] design LABS_4_5 has unconnected port led[3]
-WARNING: [Synth 8-3331] design LABS_4_5 has unconnected port led[2]
-WARNING: [Synth 8-3331] design LABS_4_5 has unconnected port led[1]
-WARNING: [Synth 8-3331] design LABS_4_5 has unconnected port led[0]
-WARNING: [Synth 8-3331] design LABS_4_5 has unconnected port led4_r
-WARNING: [Synth 8-3331] design LABS_4_5 has unconnected port led4_g
-WARNING: [Synth 8-3331] design LABS_4_5 has unconnected port led4_b
-WARNING: [Synth 8-3331] design LABS_4_5 has unconnected port led5_r
-WARNING: [Synth 8-3331] design LABS_4_5 has unconnected port led5_g
-WARNING: [Synth 8-3331] design LABS_4_5 has unconnected port led5_b
-WARNING: [Synth 8-3331] design LABS_4_5 has unconnected port btn[3]
-WARNING: [Synth 8-3331] design LABS_4_5 has unconnected port btn[2]
-WARNING: [Synth 8-3331] design LABS_4_5 has unconnected port btn[1]
-WARNING: [Synth 8-3331] design LABS_4_5 has unconnected port Reset
-WARNING: [Synth 8-3331] design LABS_4_5 has unconnected port sysclk
+INFO: [Synth 8-638] synthesizing module 'ClockDivider' [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sources_1/new/ClockDivider.vhd:24]
+	Parameter output_freq bound to: 1000 - type: integer 
+WARNING: [Synth 8-614] signal 'tempClk' is read in the process but is not in the sensitivity list [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sources_1/new/ClockDivider.vhd:34]
+INFO: [Synth 8-256] done synthesizing module 'ClockDivider' (1#1) [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sources_1/new/ClockDivider.vhd:24]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 390.160 ; gain = 155.191
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 389.934 ; gain = 154.797
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -55,9 +36,290 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 390.160 ; gain = 155.191
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 389.934 ; gain = 154.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 390.160 ; gain = 155.191
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 389.934 ; gain = 154.797
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc]
+WARNING: [Vivado 12-584] No ports matched 'led4_b'. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:18]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:18]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led4_g'. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:19]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:19]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led4_r'. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:20]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:20]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led5_b'. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:21]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:21]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led5_g'. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:22]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:22]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led5_r'. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:23]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:23]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[0]'. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:27]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:27]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[1]'. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:28]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:28]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[2]'. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:29]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:29]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[3]'. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:30]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:30]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'Reset'. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:34]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:34]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'btn[1]'. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:35]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:35]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'btn[2]'. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:36]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:36]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'btn[3]'. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:37]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc:37]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/constrs_1/imports/constrts/pynq-z2_v1.0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/ClockDivider_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/ClockDivider_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 715.902 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 715.902 ; gain = 480.766
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 715.902 ; gain = 480.766
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 715.902 ; gain = 480.766
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "tempClk" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 715.902 ; gain = 480.766
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     16 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module ClockDivider 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     16 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5546] ROM "tempClk" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:24 . Memory (MB): peak = 715.902 ; gain = 480.766
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:41 . Memory (MB): peak = 746.605 ; gain = 511.469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:41 . Memory (MB): peak = 765.957 ; gain = 530.820
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:41 . Memory (MB): peak = 765.957 ; gain = 530.820
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:42 . Memory (MB): peak = 765.957 ; gain = 530.820
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:42 . Memory (MB): peak = 765.957 ; gain = 530.820
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:42 . Memory (MB): peak = 765.957 ; gain = 530.820
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:36 ; elapsed = 00:00:42 . Memory (MB): peak = 765.957 ; gain = 530.820
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:42 . Memory (MB): peak = 765.957 ; gain = 530.820
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:00:42 . Memory (MB): peak = 765.957 ; gain = 530.820
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |     4|
+|3     |LUT1   |     1|
+|4     |LUT4   |     4|
+|5     |LUT5   |    16|
+|6     |FDCE   |    17|
+|7     |IBUF   |     2|
+|8     |OBUF   |     1|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |    46|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:42 . Memory (MB): peak = 765.957 ; gain = 530.820
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:30 . Memory (MB): peak = 765.957 ; gain = 204.852
+Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:43 . Memory (MB): peak = 765.957 ; gain = 530.820
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+16 Infos, 15 Warnings, 14 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:46 . Memory (MB): peak = 765.957 ; gain = 544.160
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint 'C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.runs/synth_1/ClockDivider.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file ClockDivider_utilization_synth.rpt -pb ClockDivider_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.059 . Memory (MB): peak = 765.957 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Oct  9 10:58:24 2019...

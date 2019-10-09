@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log LABS_4_5.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source LABS_4_5.tcl
+EAStep vivado -log ClockDivider.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source ClockDivider.tcl
