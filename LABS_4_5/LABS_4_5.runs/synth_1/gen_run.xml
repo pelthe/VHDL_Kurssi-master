@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1570603589">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1570607548">
   <File Type="PA-TCL" Name="LABS_4_5.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="LABS_4_5_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="LABS_4_5_reports.tcl"/>
@@ -13,6 +13,20 @@
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/LABS_4_5.vhd">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/ClockDivider.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/ButtonPulser.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
