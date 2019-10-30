@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7z020clg400-1" LaunchTime="1572419200">
+  <File Type="OPT-HWDEF" Name="integer_test.hwdef"/>
+  <File Type="ROUTE-BUS-SKEW" Name="integer_test_bus_skew_routed.rpt"/>
+  <File Type="PA-DCP" Name="integer_test.dcp"/>
+  <File Type="BITSTR-BMM" Name="integer_test_bd.bmm"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="integer_test_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="integer_test_timing_summary_init.rpt"/>
+  <File Type="ROUTE-PWR" Name="integer_test_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="integer_test.tcl"/>
+  <File Type="OPT-TIMING" Name="integer_test_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="integer_test_opt.dcp"/>
+  <File Type="ROUTE-PWR-SUM" Name="integer_test_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="integer_test_reports.tcl"/>
+  <File Type="OPT-DRC" Name="integer_test_drc_opted.rpt"/>
+  <File Type="PWROPT-DCP" Name="integer_test_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="integer_test_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="integer_test_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="integer_test_placed.dcp"/>
+  <File Type="PLACE-IO" Name="integer_test_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="integer_test_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="integer_test_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="integer_test_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="integer_test_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="integer_test_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="integer_test_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-TIMING" Name="integer_test_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="integer_test_postplace_pwropt.dcp"/>
+  <File Type="BG-BIN" Name="integer_test.bin"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="integer_test_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="integer_test_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="integer_test_drc_physopted.rpt"/>
+  <File Type="BITSTR-MSK" Name="integer_test.msk"/>
+  <File Type="PHYSOPT-TIMING" Name="integer_test_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="integer_test_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="integer_test_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="integer_test_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="integer_test_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="integer_test_drc_routed.pb"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="integer_test.ltx"/>
+  <File Type="ROUTE-DRC-RPX" Name="integer_test_drc_routed.rpx"/>
+  <File Type="BITSTR-MMI" Name="integer_test.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="integer_test_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="integer_test_methodology_drc_routed.rpx"/>
+  <File Type="BITSTR-SYSDEF" Name="integer_test.sysdef"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="integer_test_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="integer_test_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="integer_test_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="integer_test_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="integer_test_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="integer_test_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="integer_test_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="integer_test_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="integer_test_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="integer_test_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="integer_test_bus_skew_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="integer_test_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="integer_test_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="integer_test_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="integer_test_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="integer_test_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="integer_test_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="integer_test_bus_skew_postroute_physopted.pb"/>
+  <File Type="BG-BIT" Name="integer_test.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="integer_test_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BITSTR-RBT" Name="integer_test.rbt"/>
+  <File Type="BITSTR-NKY" Name="integer_test.nky"/>
+  <File Type="BG-BGN" Name="integer_test.bgn"/>
+  <File Type="BG-DRC" Name="integer_test.drc"/>
+  <File Type="RDI-RDI" Name="integer_test.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/LAB_1/integer_test.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../Users/Heikk/OneDrive - Turun ammattikorkeakoulu/Omat/VHDL/LAB_1/integer_test.vhd"/>
+        <Attr Name="ImportTime" Val="1569998943"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/LAB_4_5_top.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/LAB1_top.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/LAB_2_top.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="integer_test"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/imports/constrs/pynq-z2_v1.0.xdc">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../project_1/src/constrs/pynq-z2_v1.0.xdc"/>
+        <Attr Name="ImportTime" Val="1567585731"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
+      <Desc>Default settings for Implementation.</Desc>
+    </StratHandle>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>

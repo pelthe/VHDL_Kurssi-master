@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 09.10.2019 10:19:56
+-- Create Date: 30.10.2019 10:21:27
 -- Design Name: 
--- Module Name: ButtonPulser - rtl
+-- Module Name: TB_ClockGen - RTL
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,13 +31,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity ButtonPulser is
+entity TB_ClockGen is
 --  Port ( );
-end ButtonPulser;
+end TB_ClockGen;
 
-architecture rtl of ButtonPulser is
+architecture RTL of TB_ClockGen is
 
 begin
 
 
-end rtl;
+end RTL;

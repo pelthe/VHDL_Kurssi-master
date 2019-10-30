@@ -20,7 +20,7 @@ begin
     begin
         if sysclk'event and sysclk='1' then
             int_a <= int_a +1;
-            if (int_b <= 25) then
+            if (int_b <= 24) then
                 int_b <= int_b +1;
             else int_b <= 0;
             end if;

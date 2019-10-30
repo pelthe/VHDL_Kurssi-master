@@ -1,7 +1,7 @@
-Running: xsim.dir/integer_test_behav/xsimk.exe -simmode gui -wdb integer_test_behav.wdb -simrunnum 0 -socket 53572
+Running: xsim.dir/integer_test_behav/xsimk.exe -simmode gui -wdb integer_test_behav.wdb -simrunnum 0 -socket 51518
 Design successfully loaded
-Design Loading Memory Usage: 5716 KB (Peak: 5716 KB)
-Design Loading CPU Usage: 46 ms
+Design Loading Memory Usage: 5712 KB (Peak: 5712 KB)
+Design Loading CPU Usage: 15 ms
 Simulation completed
-Simulation Memory Usage: 6464 KB (Peak: 6464 KB)
-Simulation CPU Usage: 62 ms
+Simulation Memory Usage: 6276 KB (Peak: 6276 KB)
+Simulation CPU Usage: 31 ms

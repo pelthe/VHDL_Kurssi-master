@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Wed Oct  2 11:15:00 2019
+| Date         : Wed Oct 30 09:02:08 2019
 | Host         : DESKTOP-52MUKO7 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file integer_test_utilization_synth.rpt -pb integer_test_utilization_synth.pb
 | Design       : integer_test
@@ -148,10 +148,10 @@ Table of Contents
 +----------+------+---------------------+
 | OBUF     |   16 |                  IO |
 | FDRE     |   13 |        Flop & Latch |
-| LUT4     |    2 |                 LUT |
+| LUT5     |    2 |                 LUT |
 | LUT1     |    2 |                 LUT |
 | CARRY4   |    2 |          CarryLogic |
-| LUT5     |    1 |                 LUT |
+| LUT4     |    1 |                 LUT |
 | LUT3     |    1 |                 LUT |
 | LUT2     |    1 |                 LUT |
 | IBUF     |    1 |                  IO |
