@@ -1,2 +1,7 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sources_1/new/tb_Clock_Divider.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sources_1/new/ClockGen.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ClockGen
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sources_1/new/LABS_4_5.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity LABS_4_5
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sim_1/new/TB_ClockGen.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity Tb_clock_divider
+WARNING: [VRFC 10-279] actual expression for generic longpressstate cannot reference a signal [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sim_1/new/TB_ClockGen.vhd:40]

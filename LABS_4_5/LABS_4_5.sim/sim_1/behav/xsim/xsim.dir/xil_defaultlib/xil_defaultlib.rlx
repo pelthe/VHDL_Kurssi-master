@@ -2,5 +2,6 @@
 2018.2
 Jun 14 2018
 20:41:02
-C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sources_1/new/ClockDivider.vhd,1570610094,vhdl,,,,clockdivider,,,,,,,,
-C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sources_1/new/tb_Clock_Divider.vhd,1570610140,vhdl,,,,tb_clock_divider,,,,,,,,
+C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sim_1/new/TB_ClockGen.vhd,1572423882,vhdl,,,,tb_clock_divider,,,,,,,,
+C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sources_1/new/ClockGen.vhd,1572423865,vhdl,,,,clockgen,,,,,,,,
+C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sources_1/new/LABS_4_5.vhd,1570604980,vhdl,,,,labs_4_5,,,,,,,,

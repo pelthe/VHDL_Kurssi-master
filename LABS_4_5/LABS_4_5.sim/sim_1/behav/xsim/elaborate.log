@@ -3,6 +3,7 @@ Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
 Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto c8d0811be4ab4b6295e34e1ba1fb1cdd --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Tb_clock_divider_behav xil_defaultlib.Tb_clock_divider -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
+WARNING: [VRFC 10-1625] value in initialization depends on signal longpress [C:/GITs/VHDL_Kurssi-master/LABS_4_5/LABS_4_5.srcs/sim_1/new/TB_ClockGen.vhd:40]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -10,6 +11,7 @@ Time Resolution for simulation is 1ps
 Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
-Compiling architecture rtl of entity xil_defaultlib.ClockDivider [clockdivider_default]
-Compiling architecture behavior of entity xil_defaultlib.tb_clock_divider
+Compiling package ieee.numeric_std
+Compiling architecture rtl of entity xil_defaultlib.ClockGen [\ClockGen(longpressstate='U')\]
+Compiling architecture rtl of entity xil_defaultlib.tb_clock_divider
 Built simulation snapshot Tb_clock_divider_behav
