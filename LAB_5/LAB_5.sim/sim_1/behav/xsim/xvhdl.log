@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/PWM_SystemClock.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity PWM_SysClockGen
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sim_1/new/TB_PWM_SystemClock.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity TB_PWM_SystemClock

@@ -1,43 +1,52 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 06.11.2019 09:51:35
--- Design Name: 
--- Module Name: PWM_SystemClock - RTL
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+entity PWM_SysClockGen is
 
-entity PWM_SystemClock is
---  Port ( );
-end PWM_SystemClock;
+    generic (
+        PWM_resolution : integer ); -- Output resolution in bits
+  
+    port (
+      sysclk, reset : IN std_logic;
+      PWM_sysclk : OUT std_logic
+      );
 
-architecture RTL of PWM_SystemClock is
+
+end entity PWM_SysClockGen;
+
+architecture RTL of PWM_SysClockGen is
+
+    constant temp_PWM_sysclk : integer := ((2**PWM_resolution) * 100);
+    constant clockOutTicks : integer := (125e6 / temp_PWM_sysclk);
+    constant halfClockOutTicks : integer := (125e6 / temp_PWM_sysclk / 2);
+    
+    signal clockDividerInt : integer range 0 to clockOutTicks;
+    signal tempClk : STD_LOGIC := '0';
+    
+    signal n_reset : STD_LOGIC;
 
 begin
 
+    Clock_divider_p : process(sysclk, n_reset)
+    begin
+        
+        if(n_reset='1') then
+            clockDividerInt <= 0;
+            tempClk <= '0';
+        elsif(sysclk'event and sysclk='1') then
+            clockDividerInt <= clockDividerInt + 1; 
+        end if;
+        
+        if (clockDividerInt = halfClockOutTicks) then
+             tempClk <= NOT tempClk;
+             ClockDividerInt <= 1; 
+        end if;
+    
+    PWM_sysclk <= tempClk;
+    
+    end process Clock_Divider_p;
 
-end RTL;
+            
+end architecture RTL;

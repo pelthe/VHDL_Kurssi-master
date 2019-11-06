@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../LAB_5.srcs/sources_1/new/PWM_SystemClock.vhd" \
+"../../../../LAB_5.srcs/sim_1/new/TB_PWM_SystemClock.vhd" \
+
+# Do not sort compile order
+nosort
