@@ -1,0 +1,82 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
+| Date         : Wed Nov  6 09:36:25 2019
+| Host         : DESKTOP-52MUKO7 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file FSM_top_control_sets_placed.rpt
+| Design       : FSM_top
+| Device       : xc7z020
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    15 |
+| Unused register locations in slices containing registers |    66 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      2 |            8 |
+|      6 |            2 |
+|     10 |            1 |
+|    16+ |            4 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               4 |            2 |
+| No           | No                    | Yes                    |              88 |           15 |
+| No           | Yes                   | No                     |               4 |            2 |
+| Yes          | No                    | No                     |               6 |            1 |
+| Yes          | No                    | Yes                    |              40 |            7 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++---------------------------------------------------------+----------------------------------------+----------------------------------------------------------------+------------------+----------------+
+|                       Clock Signal                      |              Enable Signal             |                        Set/Reset Signal                        | Slice Load Count | Bel Load Count |
++---------------------------------------------------------+----------------------------------------+----------------------------------------------------------------+------------------+----------------+
+|  pulser/buttonPulserClock/clockDividerInt2_carry__0_n_2 |                                        | pulser/buttonPulserClock/clockDividerInt_reg[0]_LDC_i_1__0_n_0 |                1 |              2 |
+|  pulser/buttonPulserClock/tempClk_reg_i_2_n_0           |                                        |                                                                |                1 |              2 |
+|  channelSelectorClock/clockDividerInt2_carry__0_n_2     |                                        | channelSelectorClock/clockDividerInt_reg[0]_LDC_i_1_n_0        |                1 |              2 |
+|  channelSelectorClock/tempClk_reg_i_2__0_n_0            |                                        |                                                                |                1 |              2 |
+|  sysclk_IBUF_BUFG                                       |                                        | pulser/buttonPulserClock/clockDividerInt2_carry__0_n_2         |                1 |              2 |
+|  sysclk_IBUF_BUFG                                       |                                        | pulser/buttonPulserClock/clockDividerInt_reg[0]_LDC_i_1__0_n_0 |                1 |              2 |
+|  sysclk_IBUF_BUFG                                       |                                        | channelSelectorClock/clockDividerInt_reg[0]_LDC_i_1_n_0        |                1 |              2 |
+|  sysclk_IBUF_BUFG                                       |                                        | channelSelectorClock/clockDividerInt2_carry__0_n_2             |                1 |              2 |
+|  channelSelectorClock/CLK                               |                                        | Reset_IBUF                                                     |                1 |              6 |
+|  channelSelectorClock/CLK                               | rgb_led_50                             |                                                                |                1 |              6 |
+|  pulser/buttonPulserClock/clk                           |                                        | Reset_IBUF                                                     |                2 |             10 |
+|  pulser/buttonPulserClock/clk                           | pulser/repeatIntervalInt[8]_i_1_n_0    | Reset_IBUF                                                     |                3 |             18 |
+|  pulser/buttonPulserClock/clk                           | pulser/startRepeatDelayInt[10]_i_1_n_0 | Reset_IBUF                                                     |                4 |             22 |
+|  sysclk_IBUF_BUFG                                       |                                        | pulser/buttonPulserClock/clockDividerInt[16]_i_2__0_n_0        |                4 |             32 |
+|  sysclk_IBUF_BUFG                                       |                                        | channelSelectorClock/clockDividerInt[16]_i_2_n_0               |                4 |             32 |
++---------------------------------------------------------+----------------------------------------+----------------------------------------------------------------+------------------+----------------+
+
+
