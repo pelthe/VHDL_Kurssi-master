@@ -1,0 +1,4 @@
+
+*** Running vivado
+    with args -log FSM_top.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source FSM_top.tcl -notrace
+
