@@ -39,7 +39,7 @@ architecture RTL of FSM_top is
      component ButtonPulser is
      
         generic (
-            startRepeatDelay : integer := 4000;
+            startRepeatDelay : integer := 2000;
             repeatInterval : integer := 500 );
         port ( 
             sysclk, Reset, btn : IN std_logic;
