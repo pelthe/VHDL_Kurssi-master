@@ -4,6 +4,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
+use ieee.std_logic_unsigned.all;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -12,7 +13,9 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity LAB_5_top is
   
-  Port (
+  generic (
+    PWM_resolution : integer := 8 );
+  port (
     sysclk, reset : IN std_logic;
     btn : IN std_logic_vector(3 downto 1);
     led4_r, led4_g, led4_b : OUT std_logic );
@@ -31,23 +34,10 @@ architecture RTL of LAB_5_top is
     signal channelSelectorState : rgb_channel_t := Red;
     --pwm system clock gen stuff
     signal pwmClk : std_logic;
-    --pwm stuff
-    signal PWM_signalRed : std_logic;
-    signal PWM_signalGreen : std_logic;
-    signal PWM_signalBlue : std_logic;
     --resigter bank stuff
-    signal redLoad, greenLoad, blueLoad : std_logic;
-    signal tmpRegDataIn : std_logic_vector(7 downto 0) := B"1000_0000";
-    signal tmpRegDataOut : std_logic_vector(7 downto 0);
-    
-    signal redRegDataIn : std_logic_vector(7 downto 0) := B"1000_0000";
-    signal redRegDataOut : std_logic_vector(7 downto 0);
-    
-    signal blueRegDataIn : std_logic_vector(7 downto 0) := B"1000_0000";
-    signal blueRegDataOut : std_logic_vector(7 downto 0);
-    
-    signal greenRegDataIn : std_logic_vector(7 downto 0) := B"1000_0000";
-    signal greenRegDataOut : std_logic_vector(7 downto 0);
+    signal redBrightness : std_logic_vector((PWM_resolution -1) downto 0);
+    signal greenBrightness : std_logic_vector((PWM_resolution -1) downto 0);
+    signal blueBrightness : std_logic_vector((PWM_resolution -1) downto 0);
         
     
     -- clock for btn pulsers
@@ -99,21 +89,6 @@ architecture RTL of LAB_5_top is
             PWM_output : OUT std_logic );
           
       end component PWM;
-      
-      component UpDownCounter is
-            Port (
-                counterClkIn, increase, decrease : IN std_logic;
-                n_reset : IN std_logic;
-                ctrlDataInput : IN std_logic_vector(7 downto 0);
-                ctrlOutput : OUT std_logic_vector(7 downto 0) );
-       end component UpDownCounter;
-      
-      component Register_8 is
-          port (
-            clk, n_reset, load : IN std_logic;
-            dataIn : IN std_logic_vector(7 downto 0);
-            dataOut : OUT std_logic_vector(7 downto 0) );
-      end component;
 
 begin
 
@@ -129,39 +104,39 @@ begin
             btn => btn(1),
             output => pulserOutput(1) );
             
-    upPulser: ButtonPulser
-        generic map (
-            startRepeatDelay => 1000,
-            repeatInterval => 250 )
-        port map (
-            pulserClkIn => pulserClk,
-            n_reset => n_reset,
-            btn => btn(3),
-            output => pulserOutput(3) );
+--    upPulser: ButtonPulser
+--        generic map (
+--            startRepeatDelay => 1000,
+--            repeatInterval => 250 )
+--        port map (
+--            pulserClkIn => pulserClk,
+--            n_reset => n_reset,
+--            btn => btn(3),
+--            output => pulserOutput(3) );
             
-    downPulser: ButtonPulser
-         generic map (
-             startRepeatDelay => 1000,
-             repeatInterval => 250 )
-         port map (
-             pulserClkIn => pulserClk,
-             n_reset => n_reset,
-             btn => btn(2),
-             output => pulserOutput(2) );
+--    downPulser: ButtonPulser
+--         generic map (
+--             startRepeatDelay => 1000,
+--             repeatInterval => 250 )
+--         port map (
+--             pulserClkIn => pulserClk,
+--             n_reset => n_reset,
+--             btn => btn(2),
+--             output => pulserOutput(2) );
              
---   pulserGen: 
---         for i in 2 to 3
---            generate
---                pulser : ButtonPulser
---                    generic map (
---                       startRepeatDelay => 1000,
---                       repeatInterval => 250 ) 
---                    port map(
---                        pulserClkIn => pulserClk,
---                        n_reset => n_reset,
---                        btn => btn(i),
---                        output => pulserOutput(i));
---             end generate pulserGen;                                                              
+   pulserGen: 
+         for i in 2 to 3
+            generate
+                pulser : ButtonPulser
+                    generic map (
+                       startRepeatDelay => 1000,
+                       repeatInterval => 250 ) 
+                    port map(
+                        pulserClkIn => pulserClk,
+                        n_reset => n_reset,
+                        btn => btn(i),
+                        output => pulserOutput(i));
+             end generate pulserGen;                                                              
             
     kiloClock: ClockGen
         generic map (
@@ -177,63 +152,21 @@ begin
             channelSelectorState <= Red;
             
         elsif (pulserClk'event AND pulserClk = '1') then
-            case channelSelectorState is
+            if (pulserOutput(1) = '1') then
+                case channelSelectorState is
             
-                when Red => 
-                            led4_r <= PWM_signalRed;
-                            led4_g <= '0';
-                            led4_b <= '0';
-                    if pulserOutput(1) = '1' then channelSelectorState <= Green; 
-                    end if;
+                    when Red => channelSelectorState <= Green; 
+                                
+                    when Green => channelSelectorState <= Blue; 
                 
-                when Green => 
-                              led4_r <= '0';
-                              led4_g <= PWM_signalGreen;
-                              led4_b <= '0';
-                    if pulserOutput(1) = '1' then channelSelectorState <= Blue; 
-                    end if;
+                    when Blue => channelSelectorState <= Red; 
                 
-                when Blue => 
-                             led4_r <= '0';
-                             led4_g <= '0';
-                             led4_b <= PWM_signalBlue;
-                    if pulserOutput(1) = '1' then channelSelectorState <= Red; 
-                    end if;
-                
-                when others => channelSelectorState <= Red;
-                
-             end case;
-                        
+                    when others => channelSelectorState <= Red;
+                end case;  
+             end if;              
         end if;            
     
     end process channelSelectorFSM;
-    
-    redRegister : Register_8
-    
-        port map (
-            clk => pulserClk,
-            n_reset => n_reset,
-            load => redLoad,
-            dataIn => tmpRegDataIn,
-            dataOut => tmpRegDataOut );
-            
-    greenRegister : Register_8
-            
-         port map (
-             clk => pulserClk,
-             n_reset => n_reset,
-             load => greenLoad,
-             dataIn => tmpRegDataIn,
-             dataOut => tmpRegDataOut );
-                    
-    blueRegister : Register_8
-                    
-          port map (
-              clk => pulserClk,
-              n_reset => n_reset,
-              load => blueLoad,
-              dataIn => tmpRegDataIn,
-              dataOut => tmpRegDataOut );                                            
     
     PWM_clk : PWM_SysClockGen
     
@@ -252,8 +185,8 @@ begin
         port map (
             n_reset => n_reset,
             clkInput => pwmClk,
-            ctrlInput => redRegDataOut,
-            PWM_output => PWM_signalRed );
+            ctrlInput => redBrightness,
+            PWM_output => led4_r );
 
     PWM_green : PWM
     
@@ -262,53 +195,48 @@ begin
         port map (
             n_reset => n_reset,
             clkInput => pwmClk,
-            ctrlInput => greenRegDataOut,
-            PWM_output => PWM_signalGreen );
+            ctrlInput => greenBrightness,
+            PWM_output => led4_g );
             
     PWM_blue : PWM
             
-        generic map ( 
-            PWM_resolution => 8 )
-        port map (
-            n_reset => n_reset,
-            clkInput => pwmClk,
-            ctrlInput => blueRegDataOut,
-            PWM_output => PWM_signalBlue );
-            
-    brightnessCtrl : UpDownCounter
-    
-        port map (
-            counterClkIn => pulserClk,
-            increase => pulserOutput(3),
-            decrease => pulserOutput(2),
-            n_reset => n_reset,
-            ctrlDataInput => tmpRegDataOut,
-            ctrlOutput => tmpRegDataIn );
+         generic map ( 
+             PWM_resolution => 8 )
+         port map (
+             n_reset => n_reset,
+             clkInput => pwmClk,
+             ctrlInput => blueBrightness,
+             PWM_output => led4_b );                        
             
     registerSelect : process (pulserClk, n_reset) begin
     
         if n_reset = '0' then
-            redLoad <= '1';
+            redBrightness <= (others => '0');
+            greenBrightness <= (others => '0');
+            blueBrightness <= (others => '0');
         elsif (pulserClk'event AND pulserClk = '1') then
-            if channelSelectorState = Red then
-                redLoad <= '1';
-                tmpRegDataout <= redRegDataOut;
-                redRegDataOut <= tmpRegDataIn;
-                greenLoad <= '0';
-                blueLoad <= '0';
-            elsif channelSelectorState = Green then
-                redLoad <= '0';
-                greenLoad <= '1';
-                tmpRegDataout <= greenRegDataOut;
-                greenRegDataOut <= tmpRegDataIn;
-                blueLoad <= '0';
-            elsif channelSelectorState = Blue then
-                redLoad <= '0';
-                greenLoad <= '0';
-                blueLoad <= '1';
-                tmpRegDataout <= blueRegDataOut;
-                blueRegDataOut <= tmpRegDataIn;
-            end if;                  
+            if (pulserOutput(3) = '1') then
+                case channelSelectorState is
+                    when Red =>
+                        if redBrightness < 2**PWM_resolution then
+                            redBrightness <= redBrightness + 1;
+                        end if;
+                    when Green =>
+                        if greenBrightness < 2**PWM_resolution then 
+                            greenBrightness <= greenBrightness + 1;
+                        end if;
+                    when Blue =>
+                        if blueBrightness < 2** PWM_resolution then
+                            blueBrightness <= blueBrightness + 1;
+                        end if;
+                end case;
+            elsif (pulserOutput(2) = '1') then
+                case channelSelectorState is
+                    when Red => redBrightness <= redBrightness - 1;
+                    when Green => greenBrightness <= greenBrightness - 1;
+                    when Blue => blueBrightness <= blueBrightness - 1;
+                end case;             
+            end if;
         end if;
     end process registerSelect;           
      

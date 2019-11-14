@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1573720880">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1573734241">
   <File Type="PA-TCL" Name="LAB_5_top.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="LAB_5_top_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="LAB_5_top_reports.tcl"/>
@@ -34,18 +34,6 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/PWM_SystemClock.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/Register_8.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/UpDownCounter.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
