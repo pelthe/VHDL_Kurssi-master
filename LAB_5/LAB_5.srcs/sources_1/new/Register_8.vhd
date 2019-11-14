@@ -40,28 +40,29 @@ end Register_8;
 
 architecture RTL of Register_8 is
 
-    signal De : std_logic_vector(7 downto 0);
-    signal Qu : std_logic_vector(7 downto 0);
+    signal D : std_logic_vector(7 downto 0);
+    signal Q : std_logic_vector(7 downto 0);
 
 begin
    
-   De <= dataIn;
+   D <= dataIn;
    
     process (clk, n_reset) begin
         
---        if n_reset = '0' then
---            Qu <= B"1000_0000";
+    if n_reset = '0' then
+            Q <= B"1000_0000";
         
         if (clk'event AND clk = '1') then
 
             if (load = '1') then
-                Qu <= dataIn;
+                Q <= dataIn;
             end if;
         
         end if;
+    end if;
     
     end process; 
 
-    dataOut <= Qu;
+    dataOut <= Q;
 
 end RTL;

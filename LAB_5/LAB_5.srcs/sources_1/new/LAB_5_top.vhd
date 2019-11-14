@@ -32,20 +32,22 @@ architecture RTL of LAB_5_top is
     --pwm system clock gen stuff
     signal pwmClk : std_logic;
     --pwm stuff
-    signal PWM_signal : std_logic;
+    signal PWM_signalRed : std_logic;
+    signal PWM_signalGreen : std_logic;
+    signal PWM_signalBlue : std_logic;
     --resigter bank stuff
     signal redLoad, greenLoad, blueLoad : std_logic;
-    signal tmpRegDataIn : std_logic_vector(7 downto 0);
+    signal tmpRegDataIn : std_logic_vector(7 downto 0) := B"1000_0000";
     signal tmpRegDataOut : std_logic_vector(7 downto 0);
     
---    signal redRegDataIn : std_logic_vector(7 downto 0);
---    signal redRegDataOut : std_logic_vector(7 downto 0);
+    signal redRegDataIn : std_logic_vector(7 downto 0) := B"1000_0000";
+    signal redRegDataOut : std_logic_vector(7 downto 0);
     
---    signal blueRegDataIn : std_logic_vector(7 downto 0);
---    signal blueRegDataOut : std_logic_vector(7 downto 0);
+    signal blueRegDataIn : std_logic_vector(7 downto 0) := B"1000_0000";
+    signal blueRegDataOut : std_logic_vector(7 downto 0);
     
---    signal greenRegDataIn : std_logic_vector(7 downto 0);
---    signal greenRegDataOut : std_logic_vector(7 downto 0);
+    signal greenRegDataIn : std_logic_vector(7 downto 0) := B"1000_0000";
+    signal greenRegDataOut : std_logic_vector(7 downto 0);
         
     
     -- clock for btn pulsers
@@ -178,7 +180,7 @@ begin
             case channelSelectorState is
             
                 when Red => 
-                            led4_r <= PWM_signal;
+                            led4_r <= PWM_signalRed;
                             led4_g <= '0';
                             led4_b <= '0';
                     if pulserOutput(1) = '1' then channelSelectorState <= Green; 
@@ -186,7 +188,7 @@ begin
                 
                 when Green => 
                               led4_r <= '0';
-                              led4_g <= PWM_signal;
+                              led4_g <= PWM_signalGreen;
                               led4_b <= '0';
                     if pulserOutput(1) = '1' then channelSelectorState <= Blue; 
                     end if;
@@ -194,7 +196,7 @@ begin
                 when Blue => 
                              led4_r <= '0';
                              led4_g <= '0';
-                             led4_b <= PWM_signal;
+                             led4_b <= PWM_signalBlue;
                     if pulserOutput(1) = '1' then channelSelectorState <= Red; 
                     end if;
                 
@@ -243,15 +245,35 @@ begin
             PWM_sysclk => pwmClk );
                     
     
-    PWM_0 : PWM
+    PWM_red : PWM
     
         generic map ( 
             PWM_resolution => 8 )
         port map (
             n_reset => n_reset,
             clkInput => pwmClk,
-            ctrlInput => tmpRegDataOut,
-            PWM_output => PWM_signal );
+            ctrlInput => redRegDataOut,
+            PWM_output => PWM_signalRed );
+
+    PWM_green : PWM
+    
+        generic map ( 
+            PWM_resolution => 8 )
+        port map (
+            n_reset => n_reset,
+            clkInput => pwmClk,
+            ctrlInput => greenRegDataOut,
+            PWM_output => PWM_signalGreen );
+            
+    PWM_blue : PWM
+            
+        generic map ( 
+            PWM_resolution => 8 )
+        port map (
+            n_reset => n_reset,
+            clkInput => pwmClk,
+            ctrlInput => blueRegDataOut,
+            PWM_output => PWM_signalBlue );
             
     brightnessCtrl : UpDownCounter
     
@@ -270,16 +292,22 @@ begin
         elsif (pulserClk'event AND pulserClk = '1') then
             if channelSelectorState = Red then
                 redLoad <= '1';
+                tmpRegDataout <= redRegDataOut;
+                redRegDataOut <= tmpRegDataIn;
                 greenLoad <= '0';
                 blueLoad <= '0';
             elsif channelSelectorState = Green then
                 redLoad <= '0';
                 greenLoad <= '1';
+                tmpRegDataout <= greenRegDataOut;
+                greenRegDataOut <= tmpRegDataIn;
                 blueLoad <= '0';
             elsif channelSelectorState = Blue then
                 redLoad <= '0';
                 greenLoad <= '0';
                 blueLoad <= '1';
+                tmpRegDataout <= blueRegDataOut;
+                blueRegDataOut <= tmpRegDataIn;
             end if;                  
         end if;
     end process registerSelect;           
