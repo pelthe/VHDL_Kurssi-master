@@ -15,7 +15,3 @@ set_property src_info {type:XDC file:1 line:36 export:INPUT save:INPUT read:READ
 set_property -dict { PACKAGE_PIN L20   IOSTANDARD LVCMOS33 } [get_ports { btn[2] }]; #IO_L9N_T1_DQS_AD3N_35 Sch=btn[2]
 set_property src_info {type:XDC file:1 line:37 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN L19   IOSTANDARD LVCMOS33 } [get_ports { btn[3] }]; #IO_L9P_T1_DQS_AD3P_35 Sch=btn[3]
-set_property src_info {type:XDC file:1 line:41 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN Y18   IOSTANDARD LVCMOS33 } [get_ports { PWM_output }]; #IO_L17P_T2_34 Sch=ja_p[1]
-set_property src_info {type:XDC file:1 line:42 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN Y19   IOSTANDARD LVCMOS33 } [get_ports { PWM_sysclk }]; #IO_L17N_T2_34 Sch=ja_n[1]

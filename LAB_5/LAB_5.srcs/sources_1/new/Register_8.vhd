@@ -49,8 +49,8 @@ begin
    
     process (clk, n_reset) begin
         
-    if n_reset = '0' then
-            Q <= B"1000_0000";
+--    if n_reset = '0' then
+--            Q <= B"1000_0000";
         
         if (clk'event AND clk = '1') then
 
@@ -59,7 +59,7 @@ begin
             end if;
         
         end if;
-    end if;
+--    end if;
     
     end process; 
 
