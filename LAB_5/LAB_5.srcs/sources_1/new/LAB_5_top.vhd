@@ -34,10 +34,17 @@ architecture RTL of LAB_5_top is
     signal channelSelectorState : rgb_channel_t := Red;
     --pwm system clock gen stuff
     signal pwmClk : std_logic;
+    --pwm outputs
+    signal PWM_redOut : std_logic;
+    signal  PWM_greenOut : std_logic;
+    signal PWM_blueOut : std_logic;
     --resigter bank stuff
-    signal redBrightness : std_logic_vector((PWM_resolution -1) downto 0);
-    signal greenBrightness : std_logic_vector((PWM_resolution -1) downto 0);
-    signal blueBrightness : std_logic_vector((PWM_resolution -1) downto 0);
+    constant maxBrightness : std_logic_vector((PWM_resolution -1) downto 0) := (others => '1');
+    constant minBrightness : std_logic_vector((PWM_resolution -1) downto 0) := (others => '0');
+    
+    signal redBrightness : std_logic_vector((PWM_resolution -1) downto 0) := B"0000_0000";
+    signal greenBrightness : std_logic_vector((PWM_resolution -1) downto 0):= B"0000_0000";
+    signal blueBrightness : std_logic_vector((PWM_resolution -1) downto 0):= B"0000_0000";
         
     
     -- clock for btn pulsers
@@ -147,26 +154,38 @@ begin
             clkout => pulserClk );           
             
     channelSelectorFSM : process (pulserClk, n_reset) begin
-    
-        if n_reset = '0' then
-            channelSelectorState <= Red;
             
-        elsif (pulserClk'event AND pulserClk = '1') then
-            if (pulserOutput(1) = '1') then
-                case channelSelectorState is
+                if n_reset = '0' then
+                    channelSelectorState <= Red;
+                    
+                elsif (pulserClk'event AND pulserClk = '1') then
+                
+                        case channelSelectorState is
+                    
+                            when Red => led4_r <= PWM_redOut;
+                    
+                            when Green => led4_g <= PWM_greenOut;
+                    
+                            when Blue => led4_b <= PWM_blueOut;
+                    
+                            when others => led4_r <= PWM_redOut;
+                        end case;          
+                
+                        if (pulserOutput(1) = '1') then
+                            case channelSelectorState is
+                    
+                                when Red => channelSelectorState <= Green; 
+                                        
+                                when Green => channelSelectorState <= Blue; 
+                        
+                                when Blue => channelSelectorState <= Red; 
+                        
+                                when others => channelSelectorState <= Red;
+                            end case;
+                        end if;         
+                end if;            
             
-                    when Red => channelSelectorState <= Green; 
-                                
-                    when Green => channelSelectorState <= Blue; 
-                
-                    when Blue => channelSelectorState <= Red; 
-                
-                    when others => channelSelectorState <= Red;
-                end case;  
-             end if;              
-        end if;            
-    
-    end process channelSelectorFSM;
+        end process channelSelectorFSM;
     
     PWM_clk : PWM_SysClockGen
     
@@ -186,7 +205,7 @@ begin
             n_reset => n_reset,
             clkInput => pwmClk,
             ctrlInput => redBrightness,
-            PWM_output => led4_r );
+            PWM_output => PWM_redOut );
 
     PWM_green : PWM
     
@@ -196,7 +215,7 @@ begin
             n_reset => n_reset,
             clkInput => pwmClk,
             ctrlInput => greenBrightness,
-            PWM_output => led4_g );
+            PWM_output => PWM_greenOut );
             
     PWM_blue : PWM
             
@@ -206,7 +225,7 @@ begin
              n_reset => n_reset,
              clkInput => pwmClk,
              ctrlInput => blueBrightness,
-             PWM_output => led4_b );                        
+             PWM_output => PWM_blueOut );                        
             
     registerSelect : process (pulserClk, n_reset) begin
     
@@ -218,23 +237,32 @@ begin
             if (pulserOutput(3) = '1') then
                 case channelSelectorState is
                     when Red =>
-                        if redBrightness < 2**PWM_resolution then
-                            redBrightness <= redBrightness + 1;
+                        if redBrightness < maxBrightness then
+                            redBrightness <= redBrightness + 5;
                         end if;
                     when Green =>
-                        if greenBrightness < 2**PWM_resolution then 
-                            greenBrightness <= greenBrightness + 1;
+                        if greenBrightness < maxBrightness then 
+                            greenBrightness <= greenBrightness + 5;
                         end if;
                     when Blue =>
-                        if blueBrightness < 2** PWM_resolution then
-                            blueBrightness <= blueBrightness + 1;
+                        if blueBrightness < maxBrightness then
+                            blueBrightness <= blueBrightness + 5;
                         end if;
                 end case;
             elsif (pulserOutput(2) = '1') then
                 case channelSelectorState is
-                    when Red => redBrightness <= redBrightness - 1;
-                    when Green => greenBrightness <= greenBrightness - 1;
-                    when Blue => blueBrightness <= blueBrightness - 1;
+                    when Red =>
+                        if redBrightness > minBrightness then
+                            redBrightness <= redBrightness - 5;
+                        end if;
+                when Green =>
+                    if greenBrightness > minBrightness then 
+                        greenBrightness <= greenBrightness - 5;
+                    end if;
+                when Blue =>
+                    if blueBrightness > minBrightness then
+                        blueBrightness <= blueBrightness - 5;
+                    end if;
                 end case;             
             end if;
         end if;
