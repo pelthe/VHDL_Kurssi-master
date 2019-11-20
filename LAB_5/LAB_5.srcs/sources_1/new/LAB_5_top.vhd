@@ -18,7 +18,8 @@ entity LAB_5_top is
   port (
     sysclk, reset : IN std_logic;
     btn : IN std_logic_vector(3 downto 1);
-    led4_r, led4_g, led4_b : OUT std_logic );
+    led4_r, led4_g, led4_b : OUT std_logic;
+    led5_r, led5_g, led5_b : OUT std_logic );
     
     type rgb_channel_t is (Red, Green, Blue);
     
@@ -27,18 +28,18 @@ end entity LAB_5_top;
 architecture RTL of LAB_5_top is
 
     signal n_reset : std_logic;
-    -- clock gen stuff for btn pulsers
+    -- clock gen 1 kHz output for pulsers and state machines
     signal pulserClk : std_logic;
-    -- btn pulser stuff
+    -- btn pulser outputs
     signal pulserOutput : std_logic_vector(3 downto 1);
     signal channelSelectorState : rgb_channel_t := Red;
-    --pwm system clock gen stuff
+    --pwm system clock output
     signal pwmClk : std_logic;
     --pwm outputs
     signal PWM_redOut : std_logic;
     signal  PWM_greenOut : std_logic;
     signal PWM_blueOut : std_logic;
-    --resigter bank stuff
+    --resigter banks
     constant maxBrightness : std_logic_vector((PWM_resolution -1) downto 0) := (others => '1');
     constant minBrightness : std_logic_vector((PWM_resolution -1) downto 0) := (others => '0');
     
@@ -72,7 +73,7 @@ architecture RTL of LAB_5_top is
         
      end component PWM_SysClockGen;
      
-     -- btn pulser for changing RGB channel
+     -- btn pulser
      component ButtonPulser is
      
         generic (
@@ -84,7 +85,7 @@ architecture RTL of LAB_5_top is
             
       end component ButtonPulser;
       
-      -- generates the PWM for brightness control of RGB LED
+      -- PWM
       component PWM is
       
         generic (
@@ -100,7 +101,8 @@ architecture RTL of LAB_5_top is
 begin
 
     n_reset <= not reset;
-            
+    
+    -- btn pulser for changing colour channel        
     channelPulser: ButtonPulser
         generic map (
             startRepeatDelay => 2000,
@@ -110,27 +112,8 @@ begin
             n_reset => n_reset,
             btn => btn(1),
             output => pulserOutput(1) );
-            
---    upPulser: ButtonPulser
---        generic map (
---            startRepeatDelay => 1000,
---            repeatInterval => 250 )
---        port map (
---            pulserClkIn => pulserClk,
---            n_reset => n_reset,
---            btn => btn(3),
---            output => pulserOutput(3) );
-            
---    downPulser: ButtonPulser
---         generic map (
---             startRepeatDelay => 1000,
---             repeatInterval => 250 )
---         port map (
---             pulserClkIn => pulserClk,
---             n_reset => n_reset,
---             btn => btn(2),
---             output => pulserOutput(2) );
-             
+   
+   -- pulsers for changing brightness up and down          
    pulserGen: 
          for i in 2 to 3
             generate
@@ -144,7 +127,8 @@ begin
                         btn => btn(i),
                         output => pulserOutput(i));
              end generate pulserGen;                                                              
-            
+   
+   --1 kHz clk for button pulsers and state machines         
     kiloClock: ClockGen
         generic map (
             outputFreq => 1000 )
@@ -152,23 +136,32 @@ begin
             sysclk => sysclk,
             n_reset => n_reset,
             clkout => pulserClk );           
-            
+    
+    --state machine for selecting colour        
     channelSelectorFSM : process (pulserClk, n_reset) begin
             
-                if n_reset = '0' then
+                if (n_reset = '0') then
                     channelSelectorState <= Red;
                     
                 elsif (pulserClk'event AND pulserClk = '1') then
                 
                         case channelSelectorState is
                     
-                            when Red => led4_r <= PWM_redOut;
+                            when Red => led5_r <= '1';
+                                        led5_g <= '0';
+                                        led5_b <= '0';
                     
-                            when Green => led4_g <= PWM_greenOut;
+                            when Green => led5_r <= '0';
+                                          led5_g <= '1';
+                                          led5_b <= '0';
                     
-                            when Blue => led4_b <= PWM_blueOut;
+                            when Blue => led5_r <= '0';
+                                         led5_g <= '0';
+                                         led5_b <= '1';
                     
-                            when others => led4_r <= PWM_redOut;
+                            when others => led5_r <= '1';
+                                           led5_g <= '0';
+                                           led5_b <= '0';
                         end case;          
                 
                         if (pulserOutput(1) = '1') then
@@ -187,6 +180,7 @@ begin
             
         end process channelSelectorFSM;
     
+    --25,6 kHz clk for PWMs
     PWM_clk : PWM_SysClockGen
     
         generic map (
@@ -196,7 +190,7 @@ begin
             n_reset => n_reset,
             PWM_sysclk => pwmClk );
                     
-    
+   --3 PWMs for R, G and B 
     PWM_red : PWM
     
         generic map ( 
@@ -205,7 +199,7 @@ begin
             n_reset => n_reset,
             clkInput => pwmClk,
             ctrlInput => redBrightness,
-            PWM_output => PWM_redOut );
+            PWM_output => led4_r );
 
     PWM_green : PWM
     
@@ -215,7 +209,7 @@ begin
             n_reset => n_reset,
             clkInput => pwmClk,
             ctrlInput => greenBrightness,
-            PWM_output => PWM_greenOut );
+            PWM_output => led4_g );
             
     PWM_blue : PWM
             
@@ -225,8 +219,9 @@ begin
              n_reset => n_reset,
              clkInput => pwmClk,
              ctrlInput => blueBrightness,
-             PWM_output => PWM_blueOut );                        
-            
+             PWM_output => led4_b );                        
+    
+    --state machine for changing brightness in registers        
     registerSelect : process (pulserClk, n_reset) begin
     
         if n_reset = '0' then
@@ -238,7 +233,7 @@ begin
                 case channelSelectorState is
                     when Red =>
                         if redBrightness < maxBrightness then
-                            redBrightness <= redBrightness + 5;
+                            redBrightness <= redBrightness + 5; -- brightness icrement needs to divide 255 or the counter loops
                         end if;
                     when Green =>
                         if greenBrightness < maxBrightness then 
@@ -248,6 +243,10 @@ begin
                         if blueBrightness < maxBrightness then
                             blueBrightness <= blueBrightness + 5;
                         end if;
+                    when others =>
+                        redBrightness <= redBrightness;
+                        greenBrightness <= greenBrightness;
+                        blueBrightness <= blueBrightness;
                 end case;
             elsif (pulserOutput(2) = '1') then
                 case channelSelectorState is
@@ -263,6 +262,10 @@ begin
                     if blueBrightness > minBrightness then
                         blueBrightness <= blueBrightness - 5;
                     end if;
+                when others =>
+                    redBrightness <= redBrightness;
+                    greenBrightness <= greenBrightness;
+                    blueBrightness <= blueBrightness;                    
                 end case;             
             end if;
         end if;

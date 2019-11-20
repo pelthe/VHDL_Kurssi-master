@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date                      : Thu Nov 14 14:35:01 2019
+| Date                      : Wed Nov 20 09:47:00 2019
 | Host                      : DESKTOP-52MUKO7 running 64-bit major release  (build 9200)
 | Command                   : report_io -file LAB_5_top_io_placed.rpt
 | Design                    : LAB_5_top
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|             8 |
+|            11 |
 +---------------+
 
 
@@ -168,7 +168,7 @@ Table of Contents
 | G11        |             |            | VCCBRAM                 | VCCBRAM     |             |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | G12        |             |            | GND                     | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | G13        |             |            | VCCINT                  | VCCINT      |             |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| G14        |             | High Range | IO_0_35                 | User IO     |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| G14        | led5_b      | High Range | IO_0_35                 | OUTPUT      | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | G15        |             | High Range | IO_L19N_T3_VREF_35      | User IO     |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | G16        |             |            | GND                     | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | G17        | led4_g      | High Range | IO_L16P_T2_35           | OUTPUT      | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
@@ -248,7 +248,7 @@ Table of Contents
 | L11        |             |            | VCCAUX                  | VCCAUX      |             |         |            |      |                     |                      |    1.80 |            |           |          |      |                  |              |                   |              |
 | L12        |             |            | GND                     | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | L13        |             |            | VCCINT                  | VCCINT      |             |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| L14        |             | High Range | IO_L22P_T3_AD7P_35      | User IO     |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| L14        | led5_g      | High Range | IO_L22P_T3_AD7P_35      | OUTPUT      | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | L15        | led4_b      | High Range | IO_L22N_T3_AD7N_35      | OUTPUT      | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | L16        |             | High Range | IO_L11P_T1_SRCC_35      | User IO     |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | L17        |             | High Range | IO_L11N_T1_SRCC_35      | User IO     |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
@@ -269,7 +269,7 @@ Table of Contents
 | M12        |             |            | VCCINT                  | VCCINT      |             |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | M13        |             |            | GND                     | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | M14        |             | High Range | IO_L23P_T3_35           | User IO     |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| M15        |             | High Range | IO_L23N_T3_35           | User IO     |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| M15        | led5_r      | High Range | IO_L23N_T3_35           | OUTPUT      | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | M16        |             | High Range | VCCO_35                 | VCCO        |             |      35 |            |      |                     |                      |    3.30 |            |           |          |      |                  |              |                   |              |
 | M17        |             | High Range | IO_L8P_T1_AD10P_35      | User IO     |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | M18        |             | High Range | IO_L8N_T1_AD10N_35      | User IO     |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
