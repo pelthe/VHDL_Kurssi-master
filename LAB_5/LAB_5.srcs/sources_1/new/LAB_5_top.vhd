@@ -1,15 +1,15 @@
+-------------------------
+-- Authors: Miikka S?teri & Heikki Peltom?ki
+-- VHDL lab 5
+-- Desc: Shows selected state in RGB LED 5
+--      RGB LED 4 is brightness controlled
+--      btn0 is reset, btn1 is colour select, btn2 is brightness down, btn3 is brightness up
+-------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
 use ieee.std_logic_unsigned.all;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity LAB_5_top is
   
@@ -22,6 +22,7 @@ entity LAB_5_top is
     led5_r, led5_g, led5_b : OUT std_logic );
     
     type rgb_channel_t is (Red, Green, Blue);
+    type reg_t is array (0 to 2) of std_logic_vector((PWM_resolution - 1) downto 0);
     
 end entity LAB_5_top;
 
@@ -36,18 +37,12 @@ architecture RTL of LAB_5_top is
     --pwm system clock output
     signal pwmClk : std_logic;
     --pwm outputs
-    signal PWM_redOut : std_logic;
-    signal  PWM_greenOut : std_logic;
-    signal PWM_blueOut : std_logic;
+    signal rgbLed4 : std_logic_vector(0 to 2);
     --resigter banks
     constant maxBrightness : std_logic_vector((PWM_resolution -1) downto 0) := (others => '1');
     constant minBrightness : std_logic_vector((PWM_resolution -1) downto 0) := (others => '0');
-    
-    signal redBrightness : std_logic_vector((PWM_resolution -1) downto 0) := B"0000_0000";
-    signal greenBrightness : std_logic_vector((PWM_resolution -1) downto 0):= B"0000_0000";
-    signal blueBrightness : std_logic_vector((PWM_resolution -1) downto 0):= B"0000_0000";
-        
-    
+    signal brightnessReg : reg_t;
+       
     -- clock for btn pulsers
     component ClockGen is
         
@@ -101,6 +96,10 @@ architecture RTL of LAB_5_top is
 begin
 
     n_reset <= not reset;
+    
+    led4_r <= rgbLed4(0);
+    led4_g <= rgbLed4(1);
+    led4_b <= rgbLed4(2);
     
     -- btn pulser for changing colour channel        
     channelPulser: ButtonPulser
@@ -189,83 +188,66 @@ begin
             sysclk => sysclk,
             n_reset => n_reset,
             PWM_sysclk => pwmClk );
-                    
-   --3 PWMs for R, G and B 
-    PWM_red : PWM
-    
-        generic map ( 
-            PWM_resolution => 8 )
-        port map (
-            n_reset => n_reset,
-            clkInput => pwmClk,
-            ctrlInput => redBrightness,
-            PWM_output => led4_r );
-
-    PWM_green : PWM
-    
-        generic map ( 
-            PWM_resolution => 8 )
-        port map (
-            n_reset => n_reset,
-            clkInput => pwmClk,
-            ctrlInput => greenBrightness,
-            PWM_output => led4_g );
             
-    PWM_blue : PWM
-            
-         generic map ( 
-             PWM_resolution => 8 )
-         port map (
-             n_reset => n_reset,
-             clkInput => pwmClk,
-             ctrlInput => blueBrightness,
-             PWM_output => led4_b );                        
+    -- gen for 3 PWMs        
+    pwmGen :
+        for i in 0 to 2
+            generate
+                rgbPWM : PWM
+                    generic map ( 
+                        PWM_resolution => 8 )
+                    port map (
+                        n_reset => n_reset,
+                        clkInput => pwmClk,
+                        ctrlInput => brightnessReg(i),
+                        PWM_output => rgbLed4(i) );
+            end generate pwmGen;                                  
     
     --state machine for changing brightness in registers        
     registerSelect : process (pulserClk, n_reset) begin
     
         if n_reset = '0' then
-            redBrightness <= (others => '0');
-            greenBrightness <= (others => '0');
-            blueBrightness <= (others => '0');
+            brightnessReg(0) <= (others => '0');
+            brightnessReg(1) <= (others => '0');
+            brightnessReg(2) <= (others => '0');
         elsif (pulserClk'event AND pulserClk = '1') then
             if (pulserOutput(3) = '1') then
                 case channelSelectorState is
                     when Red =>
-                        if redBrightness < maxBrightness then
-                            redBrightness <= redBrightness + 5; -- brightness icrement needs to divide 255 or the counter loops
+                        if brightnessReg(0) < maxBrightness then
+                            brightnessReg(0) <= brightnessReg(0) + 5; -- brightness icrement needs to divide 255 or the counter doesnt saturate
                         end if;
                     when Green =>
-                        if greenBrightness < maxBrightness then 
-                            greenBrightness <= greenBrightness + 5;
+                        if brightnessReg(1) < maxBrightness then 
+                            brightnessReg(1) <= brightnessReg(1) + 5;
                         end if;
                     when Blue =>
-                        if blueBrightness < maxBrightness then
-                            blueBrightness <= blueBrightness + 5;
+                        if brightnessReg(2) < maxBrightness then
+                            brightnessReg(2) <= brightnessReg(2) + 5;
                         end if;
                     when others =>
-                        redBrightness <= redBrightness;
-                        greenBrightness <= greenBrightness;
-                        blueBrightness <= blueBrightness;
+                        brightnessReg(0) <= brightnessReg(0);
+                        brightnessReg(1) <= brightnessReg(1);
+                        brightnessReg(2) <= brightnessReg(2);
                 end case;
             elsif (pulserOutput(2) = '1') then
                 case channelSelectorState is
                     when Red =>
-                        if redBrightness > minBrightness then
-                            redBrightness <= redBrightness - 5;
+                        if brightnessReg(0) > minBrightness then
+                            brightnessReg(0) <= brightnessReg(0) - 5;
                         end if;
                 when Green =>
-                    if greenBrightness > minBrightness then 
-                        greenBrightness <= greenBrightness - 5;
+                    if brightnessReg(1) > minBrightness then 
+                        brightnessReg(1) <= brightnessReg(1) - 5;
                     end if;
                 when Blue =>
-                    if blueBrightness > minBrightness then
-                        blueBrightness <= blueBrightness - 5;
+                    if brightnessReg(2) > minBrightness then
+                        brightnessReg(2) <= brightnessReg(2) - 5;
                     end if;
                 when others =>
-                    redBrightness <= redBrightness;
-                    greenBrightness <= greenBrightness;
-                    blueBrightness <= blueBrightness;                    
+                    brightnessReg(0) <= brightnessReg(0);
+                    brightnessReg(1) <= brightnessReg(1);
+                    brightnessReg(2) <= brightnessReg(2);                    
                 end case;             
             end if;
         end if;

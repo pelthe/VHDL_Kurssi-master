@@ -14,51 +14,51 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 21768 
+INFO: Helper process launched with PID 20228 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 334.664 ; gain = 99.465
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 335.547 ; gain = 100.754
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'LAB_5_top' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:28]
+INFO: [Synth 8-638] synthesizing module 'LAB_5_top' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:29]
 	Parameter PWM_resolution bound to: 8 - type: integer 
 	Parameter startRepeatDelay bound to: 2000 - type: integer 
 	Parameter repeatInterval bound to: 500 - type: integer 
-INFO: [Synth 8-3491] module 'ButtonPulser' declared at 'C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/imports/Desktop/ButtonPulser.vhd:8' bound to instance 'channelPulser' of component 'ButtonPulser' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:106]
+INFO: [Synth 8-3491] module 'ButtonPulser' declared at 'C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/imports/Desktop/ButtonPulser.vhd:8' bound to instance 'channelPulser' of component 'ButtonPulser' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:105]
 INFO: [Synth 8-638] synthesizing module 'ButtonPulser' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/imports/Desktop/ButtonPulser.vhd:24]
 	Parameter startRepeatDelay bound to: 2000 - type: integer 
 	Parameter repeatInterval bound to: 500 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'ButtonPulser' (1#1) [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/imports/Desktop/ButtonPulser.vhd:24]
 	Parameter startRepeatDelay bound to: 1000 - type: integer 
 	Parameter repeatInterval bound to: 250 - type: integer 
-INFO: [Synth 8-3491] module 'ButtonPulser' declared at 'C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/imports/Desktop/ButtonPulser.vhd:8' bound to instance 'pulser' of component 'ButtonPulser' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:120]
+INFO: [Synth 8-3491] module 'ButtonPulser' declared at 'C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/imports/Desktop/ButtonPulser.vhd:8' bound to instance 'pulser' of component 'ButtonPulser' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:119]
 INFO: [Synth 8-638] synthesizing module 'ButtonPulser__parameterized1' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/imports/Desktop/ButtonPulser.vhd:24]
 	Parameter startRepeatDelay bound to: 1000 - type: integer 
 	Parameter repeatInterval bound to: 250 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'ButtonPulser__parameterized1' (1#1) [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/imports/Desktop/ButtonPulser.vhd:24]
 	Parameter startRepeatDelay bound to: 1000 - type: integer 
 	Parameter repeatInterval bound to: 250 - type: integer 
-INFO: [Synth 8-3491] module 'ButtonPulser' declared at 'C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/imports/Desktop/ButtonPulser.vhd:8' bound to instance 'pulser' of component 'ButtonPulser' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:120]
+INFO: [Synth 8-3491] module 'ButtonPulser' declared at 'C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/imports/Desktop/ButtonPulser.vhd:8' bound to instance 'pulser' of component 'ButtonPulser' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:119]
 	Parameter outputFreq bound to: 1000 - type: integer 
-INFO: [Synth 8-3491] module 'ClockGen' declared at 'C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/imports/Desktop/ClockGen.vhd:8' bound to instance 'kiloClock' of component 'ClockGen' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:132]
+INFO: [Synth 8-3491] module 'ClockGen' declared at 'C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/imports/Desktop/ClockGen.vhd:8' bound to instance 'kiloClock' of component 'ClockGen' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:131]
 INFO: [Synth 8-638] synthesizing module 'ClockGen' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/imports/Desktop/ClockGen.vhd:21]
 	Parameter outputFreq bound to: 1000 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'ClockGen' (2#1) [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/imports/Desktop/ClockGen.vhd:21]
 	Parameter PWM_resolution bound to: 8 - type: integer 
-INFO: [Synth 8-3491] module 'PWM_SysClockGen' declared at 'C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/PWM_SystemClock.vhd:8' bound to instance 'PWM_clk' of component 'PWM_SysClockGen' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:184]
+INFO: [Synth 8-3491] module 'PWM_SysClockGen' declared at 'C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/PWM_SystemClock.vhd:8' bound to instance 'PWM_clk' of component 'PWM_SysClockGen' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:183]
 INFO: [Synth 8-638] synthesizing module 'PWM_SysClockGen' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/PWM_SystemClock.vhd:20]
 	Parameter PWM_resolution bound to: 8 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'PWM_SysClockGen' (3#1) [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/PWM_SystemClock.vhd:20]
 	Parameter PWM_resolution bound to: 8 - type: integer 
-INFO: [Synth 8-3491] module 'PWM' declared at 'C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/PWM.vhd:14' bound to instance 'PWM_red' of component 'PWM' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:194]
+INFO: [Synth 8-3491] module 'PWM' declared at 'C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/PWM.vhd:14' bound to instance 'rgbPWM' of component 'PWM' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:196]
 INFO: [Synth 8-638] synthesizing module 'PWM' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/PWM.vhd:24]
 	Parameter PWM_resolution bound to: 8 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'PWM' (4#1) [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/PWM.vhd:24]
 	Parameter PWM_resolution bound to: 8 - type: integer 
-INFO: [Synth 8-3491] module 'PWM' declared at 'C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/PWM.vhd:14' bound to instance 'PWM_green' of component 'PWM' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:204]
+INFO: [Synth 8-3491] module 'PWM' declared at 'C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/PWM.vhd:14' bound to instance 'rgbPWM' of component 'PWM' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:196]
 	Parameter PWM_resolution bound to: 8 - type: integer 
-INFO: [Synth 8-3491] module 'PWM' declared at 'C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/PWM.vhd:14' bound to instance 'PWM_blue' of component 'PWM' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:214]
-INFO: [Synth 8-256] done synthesizing module 'LAB_5_top' (5#1) [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:28]
+INFO: [Synth 8-3491] module 'PWM' declared at 'C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/PWM.vhd:14' bound to instance 'rgbPWM' of component 'PWM' [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:196]
+INFO: [Synth 8-256] done synthesizing module 'LAB_5_top' (5#1) [C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.srcs/sources_1/new/LAB_5_top.vhd:29]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 390.156 ; gain = 154.957
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 390.578 ; gain = 155.785
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -71,10 +71,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 390.156 ; gain = 154.957
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 390.578 ; gain = 155.785
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 390.156 ; gain = 154.957
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 390.578 ; gain = 155.785
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -90,22 +90,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 755.449 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 757.086 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 755.449 ; gain = 520.250
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 757.086 ; gain = 522.293
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 755.449 ; gain = 520.250
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 757.086 ; gain = 522.293
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 755.449 ; gain = 520.250
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 757.086 ; gain = 522.293
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'pulser_state_reg' in module 'ButtonPulser'
 INFO: [Synth 8-5546] ROM "allowRepeat" won't be mapped to RAM because it is too sparse
@@ -149,7 +149,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'pulser_state_reg' using en
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'channelSelectorState_reg' using encoding 'one-hot' in module 'LAB_5_top'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 755.449 ; gain = 520.250
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 757.086 ; gain = 522.293
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -243,13 +243,6 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input     13 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 1     
-Module PWM 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      8 Bit       Adders := 1     
-+---Registers : 
-	                8 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
 Module ButtonPulser__parameterized1 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -266,6 +259,13 @@ Detailed RTL Component Info :
 	   2 Input      2 Bit        Muxes := 3     
 	   2 Input      1 Bit        Muxes := 10    
 	   4 Input      1 Bit        Muxes := 3     
+Module PWM 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -288,7 +288,7 @@ INFO: [Synth 8-5546] ROM "PWM_clk/tempClk" won't be mapped to RAM because it is 
 INFO: [Synth 8-5546] ROM "pulserGen[2].pulser/allowRepeat" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "pulserGen[3].pulser/allowRepeat" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 755.449 ; gain = 520.250
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 757.086 ; gain = 522.293
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -300,13 +300,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 755.449 ; gain = 520.250
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 757.086 ; gain = 522.293
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 769.043 ; gain = 533.844
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 766.008 ; gain = 531.215
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -318,7 +318,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 772.188 ; gain = 536.988
+Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:35 . Memory (MB): peak = 768.727 ; gain = 533.934
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -342,7 +342,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 772.188 ; gain = 536.988
+Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 768.727 ; gain = 533.934
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -355,7 +355,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 772.188 ; gain = 536.988
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 768.727 ; gain = 533.934
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -367,25 +367,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 772.188 ; gain = 536.988
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 768.727 ; gain = 533.934
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 772.188 ; gain = 536.988
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 768.727 ; gain = 533.934
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 772.188 ; gain = 536.988
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 768.727 ; gain = 533.934
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 772.188 ; gain = 536.988
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 768.727 ; gain = 533.934
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -421,21 +421,21 @@ Report Instance Areas:
 |      |Instance                |Module                         |Cells |
 +------+------------------------+-------------------------------+------+
 |1     |top                     |                               |   409|
-|2     |  PWM_blue              |PWM                            |     2|
-|3     |  PWM_clk               |PWM_SysClockGen                |    33|
-|4     |  PWM_green             |PWM_0                          |     2|
-|5     |  PWM_red               |PWM_1                          |    43|
-|6     |  channelPulser         |ButtonPulser                   |    72|
-|7     |  kiloClock             |ClockGen                       |    44|
-|8     |  \pulserGen[2].pulser  |ButtonPulser__parameterized1   |    65|
-|9     |  \pulserGen[3].pulser  |ButtonPulser__parameterized1_2 |    80|
+|2     |  PWM_clk               |PWM_SysClockGen                |    33|
+|3     |  channelPulser         |ButtonPulser                   |    72|
+|4     |  kiloClock             |ClockGen                       |    44|
+|5     |  \pulserGen[2].pulser  |ButtonPulser__parameterized1   |    65|
+|6     |  \pulserGen[3].pulser  |ButtonPulser__parameterized1_0 |    80|
+|7     |  \pwmGen[0].rgbPWM     |PWM                            |    43|
+|8     |  \pwmGen[1].rgbPWM     |PWM_1                          |     2|
+|9     |  \pwmGen[2].rgbPWM     |PWM_2                          |     2|
 +------+------------------------+-------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 772.188 ; gain = 536.988
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 768.727 ; gain = 533.934
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:24 . Memory (MB): peak = 772.188 ; gain = 171.695
-Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 772.188 ; gain = 536.988
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:25 . Memory (MB): peak = 768.727 ; gain = 167.426
+Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 768.727 ; gain = 533.934
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 24 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -447,9 +447,9 @@ No Unisim elements were transformed.
 INFO: [Common 17-83] Releasing license: Synthesis
 53 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 772.188 ; gain = 550.395
+synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:39 . Memory (MB): peak = 770.789 ; gain = 549.262
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/GITs/VHDL_Kurssi-master/LAB_5/LAB_5.runs/synth_1/LAB_5_top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file LAB_5_top_utilization_synth.rpt -pb LAB_5_top_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.062 . Memory (MB): peak = 772.188 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Wed Nov 20 09:45:36 2019...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 770.789 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Nov 20 10:53:17 2019...
