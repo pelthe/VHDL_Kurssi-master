@@ -215,7 +215,7 @@ begin
                 case channelSelectorState is
                     when Red =>
                         if brightnessReg(0) < maxBrightness then
-                            brightnessReg(0) <= brightnessReg(0) + 5; -- brightness icrement needs to divide 255 or the counter doesnt saturate
+                            brightnessReg(0) <= brightnessReg(0) + 5; -- brightness increment needs to divide 255 or the counter doesnt saturate
                         end if;
                     when Green =>
                         if brightnessReg(1) < maxBrightness then 
